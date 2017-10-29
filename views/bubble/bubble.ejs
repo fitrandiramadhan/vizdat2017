@@ -1,0 +1,121 @@
+
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<script type="text/javascript">
+	window.onload = function () {
+		var chart = new CanvasJS.Chart("chartContainer",
+		{
+			zoomEnabled: true,
+                        animationEnabled: true,
+			title:{
+				text: "Rasio Jumlah Dokter Umum terhadap Jumlah Puskesmas di Sumatera Tahun 2015"
+
+			},
+			axisX: {
+				title:"Jumlah Puskesmas",
+
+
+				gridThickness: 1,
+				tickThickness: 1,
+				gridColor: "lightgrey",
+				tickColor: "lightgrey",
+				lineThickness: 0,
+				maximum : 600
+
+			},
+			axisY:{
+				title: "Jumlah Dokter Umum",
+				gridThickness: 1,
+				tickThickness: 1,
+				gridColor: "lightgrey",
+				tickColor: "lightgrey",
+				lineThickness: 0
+
+
+
+			},
+
+			data: [
+			{
+				type: "bubble",
+
+				toolTipContent: "<span style='\"'color: {color};'\"'><strong>{name}</strong></span><br/><strong>Jumlah Puskesmas</strong> {x} <br/> <strong>Jumlah Dokter Umum</strong> {y} <br/> <strong>Ratio </strong> {z}%",
+				dataPoints: [
+	{
+		x: 339,
+		y: 762,
+		z: 2.25,
+		name: " Aceh"
+	},
+	{
+		x: 571,
+		y: 1419,
+		z: 2.49,
+		name: " Sumatera Utara"
+	},
+	{
+		x: 264,
+		y: 424,
+		z: 1.61,
+		name: " Sumatera Barat"
+	},
+	{
+		x: 212,
+		y: 482,
+		z: 2.27,
+		name: " Riau"
+	},
+	{
+		x: 176,
+		y: 302,
+		z: 1.72,
+		name: " Jambi "
+	},
+	{
+		x: 322,
+		y: 441,
+		z: 1.37,
+		name: " Sumatera Selatan "
+	},
+	{
+		x: 180,
+		y: 192,
+		z: 1.07,
+		name: " Bengkulu"
+	},
+	{
+		x: 291,
+		y:507,
+		z: 1.74,
+		name: " Lampung"
+	},
+	{
+		x: 62,
+		y: 132,
+		z: 2.13,
+		name: " Kep. Bangka Belitung"
+	},
+	{
+		x: 72,
+		y: 317,
+		z: 4.40,
+		name: " Kepulauan Riau"
+	}
+
+]
+			}
+			]
+		});
+
+chart.render();
+}
+</script>
+<script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</head>
+<body>
+	<div id="chartContainer" style="height: 300px; width: 100%;">
+	</div>
+</body>
+</html>

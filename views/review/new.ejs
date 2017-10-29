@@ -1,0 +1,10 @@
+<form class="form-signin" action="/review/create" method="POST">
+	<h2 class="form-signin-heading">Create a Review</h2>
+	<input type="text" class="form-control" placeholder="poi" name="poi">
+	<input type="text" class="form-control" placeholder="writer" name="writer">
+	<input type="text" class="form-control" placeholder="wrating" name="wrating">
+	<input type="text" class="form-control" placeholder="mrating" name="mrating">
+
+	<input type="submit" class="btn btn-lg btn-primary btn-block" value="Submit"/>
+	<input type="hidden" name="_csrf" value="<%= _csrf %>"/>
+</form>

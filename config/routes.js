@@ -32,9 +32,31 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': {
-    view: 'homepage'
-  }
+    '/': {
+        view: 'home/index'
+    },
+
+    '/bubble': {
+        view: 'bubble/bubble'
+    },
+
+    '/map': {
+        view: 'Map/Map'
+    },
+
+    '/map1': {
+        view: 'Map/map1'
+    },
+
+    '/map2': {
+        view: 'Map/map2'
+    },
+
+    '/map_heat': {
+        view: 'Map/Map_Heat'
+    }
+
+
 
   /***************************************************************************
   *                                                                          *

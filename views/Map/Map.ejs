@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Info window with <code>maxWidth</code></title>
+    <style>
+        #map_wrapper {
+            margin-top: 2%;
+            margin-left: 2%;
+            margin-right: 2%;
+            height: 800px;
+            width: 96%;
+        }
+
+        #map_canvas {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <div id="map_wrapper">
+    <div id="map_canvas" class="mapping"></div>
+    </div>
+    <script>
+
+      // This example displays a marker at the center of Australia.
+      // When the user clicks the marker, an info window opens.
+      // The maximum width of the info window is set to 200 pixels.
+
+        function initMap() {
+
+        var myLatLng = {lat: -6.9175, lng: 107.6191};
+
+        var map = new google.maps.Map(document.getElementById('map_canvas'), {
+          zoom: 11,
+          center: myLatLng
+        });
+
+
+        var markers = [
+            ['Institut Teknologi Bandung', -6.8915, 107.6107, 5],
+            ['Ciwidey', -7.0893, 107.4440, 1]
+        ]
+
+        for( i = 0; i < markers.length; i++ ) {
+            var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
+            marker = new google.maps.Marker({
+                position: position,
+                map: map,
+                title: markers[i][0]
+            });
+        }
+
+        // Info Window Content
+        var infoWindowContent = [
+            ['<div class="info_content">' +
+            '<h3>London Eye</h3>' +
+            '<p>The London Eye is a giant Ferris wheel situated on the banks of the River Thames. The entire structure is 135 metres (443 ft) tall and the wheel has a diameter of 120 metres (394 ft).</p>' +        '</div>'],
+            ['<div class="info_content">' +
+            '<h3>Palace of Westminster</h3>' +
+            '<p>The Palace of Westminster is the meeting place of the House of Commons and the House of Lords, the two houses of the Parliament of the United Kingdom. Commonly known as the Houses of Parliament after its tenants.</p>' +
+            '</div>']
+        ];
+
+        var infoWindow = new google.maps.InfoWindow(), marker, i;
+
+        // for( i = 0; i < markers.length; i++ ) {
+        //     var infowindow = new google.maps.InfoWindow({
+        //       content: 'lontong'
+        //     });
+        // }
+
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+            console.log('test');
+            return function() {
+                infoWindow.setContent('loli');
+                infoWindow.open(map, marker);
+            }
+        })(marker, i));
+
+
+
+        // var uluru = {lat: -6.9175, lng: 107.6191};
+        // var map = new google.maps.Map(document.getElementById('map_canvas'), {
+        //     zoom: 13,
+        //     center: uluru
+        // });
+        //
+        // var markers = [
+        //     ['Institut Teknologi Bandung', -6.8915, 107.6107],
+        //     ['Ciwidey', -7.0893, 107.4440]
+        // ];
+        //
+        // // Display multiple markers on a map
+        // var infoWindow = new google.maps.InfoWindow(), marker, i;
+        //
+        // // Loop through our array of markers & place each one on the map
+        // for( i = 0; i < markers.length; i++ ) {
+        //     var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
+        //     bounds.extend(position);
+        //     marker = new google.maps.Marker({
+        //         position: position,
+        //         map: map,
+        //         title: markers[i][0]
+        //     });
+        // }
+        }
+    </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBb7Ko4YtUswEvtL36Xa74-xArqDfaibFc&callback=initMap">
+    </script>
+  </body>
+</html>
