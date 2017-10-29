@@ -1,0 +1,23 @@
+{
+  "name": "vizdat2017",
+  "homepage": "https://github.com/fitrandiramadhan/vizdat2017",
+  "authors": [
+    "Fitrandi Ramadhan <fitrandiramadhan@gmail.com>"
+  ],
+  "description": "assets of vizdat2017",
+  "main": "",
+  "license": "MIT",
+
+  "dependencies": {
+      "jquery": "~2.1.3",
+      "bootstrap": "~3.3.5"
+  },
+
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
