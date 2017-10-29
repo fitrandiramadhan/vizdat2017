@@ -46,22 +46,47 @@ var mapOptions = {
 map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
 map.setTilt(45);
 
+google.maps.event.addListener(map, 'click', function(event) {
+   placeMarker(event.latLng);
+});
+
+function placeMarker(location) {
+    var marker = new google.maps.Marker({
+        position: location,
+        map: map
+    });
+}
+
+
 // Multiple Markers
 var markers = [
-    ['London Eye, London', 51.503454,-0.119562],
-    ['Palace of Westminster, London', 51.499633,-0.124755]
+    ['London Eye', 51.503454,-0.119562,50],
+    ['Palace of Westminster', 51.499633,-0.124755,76],
+    ['Gedung Sate', 51.529633,-0.194755,88]
 ];
 
-// Info Window Content
-var infoWindowContent = [
-    ['<div class="info_content">' +
-    '<h3>London Eye</h3>' +
-    '<p>The London Eye is a giant Ferris wheel situated on the banks of the River Thames. The entire structure is 135 metres (443 ft) tall and the wheel has a diameter of 120 metres (394 ft).</p>' +        '</div>'],
-    ['<div class="info_content">' +
-    '<h3>Palace of Westminster</h3>' +
-    '<p>The Palace of Westminster is the meeting place of the House of Commons and the House of Lords, the two houses of the Parliament of the United Kingdom. Commonly known as the Houses of Parliament after its tenants.</p>' +
-    '</div>']
-];
+// var infoWindowContent = [
+//     ['<div class="info_content">' +
+//     '<h3>' + markers[0][0] + '</h3>' +
+//     '<p>The London Eye is a giant Ferris wheel situated on the banks of the River Thames. The entire structure is 135 metres (443 ft) tall and the wheel has a diameter of 120 metres (394 ft).</p>' +        '</div>'],
+//     ['<div class="info_content">' +
+//     '<h3>' + markers[1][0] + '</h3>' +
+//     '<p>The Palace of Westminster is the meeting place of the House of Commons and the House of Lords, the two houses of the Parliament of the United Kingdom. Commonly known as the Houses of Parliament after its tenants.</p>' +
+//     '</div>'],
+//     ['<div class="info_content">' +
+//     '<h3>' + markers[2][0] + '</h3>' +
+//     '<p>gedung sate</p>' +
+//     '</div>']
+// ];
+
+var infoWindowContent = [];
+
+for(i=0;i<markers.length;i++) {
+    infoWindowContent.push(
+        ['<div class="info_content">' +
+        '<h3>' + markers[i][0] + '</h3>' +
+        '<p>' + markers[i][3] + '</p>' + '</div>'])
+}
 
 // Display multiple markers on a map
 var infoWindow = new google.maps.InfoWindow(), marker, i;
@@ -73,6 +98,7 @@ for( i = 0; i < markers.length; i++ ) {
     marker = new google.maps.Marker({
         position: position,
         map: map,
+        icon: 'https://maps.google.com/mapfiles/kml/shapes/parking_lot_maps.png',
         title: markers[i][0]
     });
 
@@ -93,6 +119,18 @@ var boundsListener = google.maps.event.addListener((map), 'bounds_changed', func
     this.setZoom(14);
     google.maps.event.removeListener(boundsListener);
 });
+
+google.maps.event.addListener(map, 'click', function(event) {
+   placeMarker(event.latLng);
+});
+
+function placeMarker(location) {
+    var marker = new google.maps.Marker({
+        position: location,
+        map: map
+    });
+}
+
 
 }
     </script>
